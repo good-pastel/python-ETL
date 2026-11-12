@@ -2879,3 +2879,78 @@ button,
     overflow-wrap: anywhere;
   }
 }
+
+/* ==========================================
+   MOBILE OVERFLOW FIX
+   Preserve existing Good Pastel design
+========================================== */
+
+@media (max-width: 768px) {
+
+    /* Prevent grid content from expanding */
+    .features-grid > *,
+    .feature-api-card,
+    .api-information,
+    .api-item {
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    /* Output and Metadata */
+    .api-item code {
+        width: 100%;
+        max-width: 100%;
+        white-space: normal;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+        overflow-x: auto;
+    }
+
+    /* Code preview */
+    .code-preview {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        overflow: hidden;
+    }
+
+    .code-preview pre {
+        max-width: 100%;
+        overflow-x: auto;
+    }
+
+    .code-preview code {
+        white-space: pre;
+        word-break: normal;
+        overflow-wrap: normal;
+    }
+
+    /* Feature cards */
+    .feature-api-card {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Prevent horizontal page overflow */
+    .container,
+    section,
+    main {
+        max-width: 100%;
+        min-width: 0;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .feature-api-card {
+        padding: 22px;
+    }
+
+    .api-item {
+        padding: 14px;
+    }
+
+    .api-item code {
+        font-size: 12px;
+    }
+}
