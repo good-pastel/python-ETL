@@ -144,8 +144,8 @@ The example configuration points to the synthetic demo folder. Review permission
 ## Project Structure
 
 ~~~text
-employee-salary-analytics/
-├── assets/                 # Existing Good Pastel website styles and scripts
+python-ETL/
+├── assets/                
 ├── demo/
 │   ├── input/              # Synthetic CSV, Excel, and ZIP examples
 │   └── output/Result.xlsx  # Synthetic example workbook
