@@ -13,7 +13,7 @@ A modular Python ETL project that consolidates CSV files, Excel workbooks, and Z
 
 Visit the portfolio website:
 
-👉 [Python ETL Pipeline](https://good-pastel.github.io/employee-salary-analytics/)
+👉 [Python ETL Pipeline](https://good-pastel.github.io/python-ETL/)
 
 ## Screenshots
 
