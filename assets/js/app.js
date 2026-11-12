@@ -29,13 +29,13 @@ apiButtons.forEach((button) => {
     detail.classList.toggle("opened");
 
     if (detail.classList.contains("opened")) {
-      button.childNodes[0].nodeValue = "Hide Details ";
+      button.childNodes[0].nodeValue = `${button.dataset.labelOpen || "Hide Details"} `;
 
       icon.classList.remove("ti-chevron-down");
 
       icon.classList.add("ti-chevron-up");
     } else {
-      button.childNodes[0].nodeValue = "View Details ";
+      button.childNodes[0].nodeValue = `${button.dataset.labelClosed || "View Details"} `;
 
       icon.classList.remove("ti-chevron-up");
 

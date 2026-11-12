@@ -1,1386 +1,238 @@
 <!doctype html>
-<html lang="en">
+<html lang="id">
   <head>
-    <!-- =====================================
-                    META
-    ====================================== -->
-
     <meta charset="UTF-8" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>Employee Salary Analytics</title>
-
-    <!-- =====================================
-                GOOGLE FONT
-    ====================================== -->
-
+    <meta name="description" content="Studi kasus Python ETL: konsolidasi CSV, Excel, dan ZIP menjadi workbook Excel yang siap ditinjau." />
+    <title>Python ETL Pipeline</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Outfit:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-
-    <!-- =====================================
-                TABLER ICONS
-    ====================================== -->
-
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"
-    />
-
-    <!-- =====================================
-                    CSS
-    ====================================== -->
-
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
     <link rel="stylesheet" href="assets/css/variables.css" />
-
     <link rel="stylesheet" href="assets/css/reset.css" />
-
     <link rel="stylesheet" href="assets/css/style.css" />
-
     <link rel="stylesheet" href="assets/css/animation.css" />
   </head>
-
   <body>
-    <!-- =====================================
-                HEADER
-    ====================================== -->
-
     <header class="header">
       <div class="container">
         <nav class="navbar">
-          <!-- Logo -->
-
-          <a href="#" class="logo">
-            <i class="ti ti-chart-dots-3"></i>
-
-            <span> Employee Salary Analytics </span>
-          </a>
-
-          <!-- Navigation -->
-
+          <a href="#" class="logo"><i class="ti ti-chart-dots-3"></i><span>Python ETL Pipeline</span></a>
           <ul class="nav-menu">
-            <li>
-              <a href="#about"> Tentang </a>
-            </li>
-
-            <li>
-              <a href="#architecture"> Arsitektur </a>
-            </li>
-
-            <li>
-              <a href="#features"> Fitur </a>
-            </li>
-
-            <li>
-              <a href="#documentation"> Dokumentasi </a>
-            </li>
+            <li><a href="#about">Tentang</a></li>
+            <li><a href="#architecture">Arsitektur</a></li>
+            <li><a href="#features">Hasil &amp; Kode</a></li>
+            <li><a href="#documentation">Demo</a></li>
           </ul>
-
-          <div class="mobile-menu-button">
-            <i class="ti ti-menu-2" aria-hidden="true"></i>
-          </div>
-
-          <!-- Github -->
-
-          <a
-            href="https://github.com/good-pastel"
-            target="_blank"
-            class="github-button"
-            rel="noopener noreferrer"
-aria-label="Open GitHub Repository">
-          
-            <i class="ti ti-brand-github" aria-hidden="true"></i>
-
-            Github
+          <div class="mobile-menu-button"><i class="ti ti-menu-2" aria-hidden="true"></i></div>
+          <a href="https://github.com/good-pastel/employee-salary-analytics" target="_blank" class="github-button" rel="noopener noreferrer" aria-label="Open GitHub Repository">
+            <i class="ti ti-brand-github" aria-hidden="true"></i> Github
           </a>
         </nav>
         <div class="mobile-menu">
-          <a href="#about"> Tentang </a>
-
-          <a href="#architecture"> Arsitektur </a>
-
-          <a href="#features"> Fitur </a>
-
-          <a href="#documentation"> Dokumentasi </a>
-
-          <a href="https://github.com/good-pastel" target="_blank"> Github </a>
+          <a href="#about">Tentang</a><a href="#architecture">Arsitektur</a><a href="#features">Hasil &amp; Kode</a><a href="#documentation">Demo</a>
+          <a href="https://github.com/good-pastel/employee-salary-analytics" target="_blank" rel="noopener noreferrer">Github</a>
         </div>
       </div>
     </header>
 
-    <!-- =====================================
-                HERO
-    ====================================== -->
-
     <main>
       <section class="hero">
         <div class="container hero-container">
-          <!-- LEFT -->
-
           <div class="hero-content fade-up">
-            <span class="hero-badge">
-              <i class="ti ti-brand-python" aria-hidden="true"></i>
-
-              Python • Linked List • Portfolio Project
-            </span>
-
-            <h1 class="hero-title">
-              Employee Salary
-
-              <span>Analytics</span>
-            </h1>
-
+            <span class="hero-badge"><i class="ti ti-brand-python" aria-hidden="true"></i> Python • pandas • ETL Portfolio</span>
+            <h1 class="hero-title">Python <span>ETL Pipeline</span></h1>
             <p class="hero-description">
-             Project ini merupakan library analisis data berbasis <b>Python</b> yang mengimplementasikan struktur data <b>Linked List</b>. Library ini mendukung operasi <b>CRUD</b>, <b>Filtering</b>, <b>Grouping</b>, <b>Statistics</b>, distribusi gaji, dan berbagai analisis untuk mengeksplorasi dataset karyawan.
+              Satu alur kerja untuk menggabungkan file <b>CSV, Excel, dan ZIP</b>, merapikan kolom tanggal, menyaring rentang waktu, lalu menghasilkan workbook Excel yang terstruktur. Contoh hasil di halaman ini hanya memakai data sintetis.
             </p>
-
             <div class="hero-tags">
-              <span>Linked List</span>
-
-              <span>CRUD</span>
-
-              <span>Statistics</span>
-
-              <span>Grouping</span>
-
-              <span>Filtering</span>
-
-              <span>Distribution</span>
+              <span>Extract</span><span>Transform</span><span>Load</span><span>pandas</span><span>Excel</span>
             </div>
-
             <div class="hero-buttons" title="View Source Code on GitHub">
-              <a
-                href="https://github.com/good-pastel/employee-salary-analytics"
-                target="_blank"
-                class="button-primary"
-              >
-                <i class="ti ti-brand-github" aria-hidden="true"></i>
-
-                Lihat Github
-              </a>
-
-              <a href="#documentation" class="button-secondary">
-                Dokumentasi
-              </a>
+              <a href="https://github.com/good-pastel/employee-salary-analytics" target="_blank" rel="noopener noreferrer" class="button-primary"><i class="ti ti-brand-github" aria-hidden="true"></i> Lihat Github</a>
+              <a href="#documentation" class="button-secondary">Buka Demo</a>
             </div>
           </div>
-
-          <!-- RIGHT -->
-
           <div class="hero-preview fade-up">
             <div class="dashboard-card card-hover">
-              <div class="dashboard-header">
-                <h3>Ringkasan Analisis</h3>
-
-                <i class="ti ti-chart-bar" aria-hidden="true"></i>
-              </div>
-
-              <div class="stat-item">
-                <span> Total Karyawan </span>
-
-                <strong> 608 </strong>
-              </div>
-
-              <div class="stat-item">
-                <span> Rata-rata gaji </span>
-
-                <strong> $112K </strong>
-              </div>
-
-              <div class="stat-item">
-                <span> Gaji Tertinggi </span>
-
-                <strong> $600K </strong>
-              </div>
-
-              <div class="stat-item">
-                <span> Gaji Terendah </span>
-
-                <strong> $2.8K </strong>
-              </div>
-
-              <div class="dashboard-footer">
-                <span> Python </span>
-
-                <span> Linked List </span>
-              </div>
+              <div class="dashboard-header"><h3>Hasil Demo Sintetis</h3><i class="ti ti-table-export"></i></div>
+              <div class="stat-item"><span>Baris diimpor</span><strong>9</strong></div>
+              <div class="stat-item"><span>Tanggal tidak valid</span><strong>1</strong></div>
+              <div class="stat-item"><span>Baris dalam rentang</span><strong>7</strong></div>
+              <div class="stat-item"><span>Sheet output</span><strong>Summary + 03</strong></div>
+              <div class="dashboard-footer"><span>Semua data dibuat untuk demo</span></div>
             </div>
           </div>
         </div>
       </section>
-
-      <!-- =====================================
-                ABOUT
-                (NEXT PHASE)
-        ====================================== -->
 
       <section id="about">
         <div class="container">
           <div class="section-header fade-up">
-            <span class="section-badge"> Tentang Project </span>
-
-            <h2>Dibangun dari Awal dengan Python</h2>
-
+            <span class="section-badge">Tentang Project</span>
+            <h2>Dari File Terpisah ke Satu Workbook</h2>
             <p>
-              Project ini dibangun untuk menunjukkan implementasi struktur data <b>Linked List</b> dalam <b>Python</b> tanpa bergantung pada library analisis data seperti <b>Pandas</b>. Seluruh fitur dikembangkan dari awal, mulai dari operasi <b>CRUD</b>, pencarian data, <b>Filtering</b>, <b>Grouping</b>, hingga perhitungan statistik pada dataset gaji karyawan.
+              Pipeline ini menangani pekerjaan konsolidasi berulang: membaca beberapa format sumber, menyatukan kolom yang sepadan, menormalkan tanggal, menerapkan filter periode, dan menyiapkan Excel untuk pemeriksaan lanjutan. File sumber operasional tidak disertakan dalam portfolio.
             </p>
           </div>
-
           <div class="about-tags">
-            <span>Python Linked List</span>
-
-            <span>Built From Scratch</span>
-
-            <span>Object Oriented</span>
-
-            <span>Statistics</span>
-
-            <span>Filter</span>
-
-            <span>CRUD</span>
+            <span>CSV</span><span>Excel</span><span>ZIP berisi CSV</span><span>Datetime</span><span>Data Quality</span><span>Excel Export</span>
           </div>
-
           <div class="feature-grid">
-            <article class="feature-card fade-up">
-              <i class="ti ti-brand-python" aria-hidden="true"></i>
-
-              <h3>Python Linked List</h3>
-
-              <p>
-                Mengimplementasikan struktur data <b>Linked List</b> dari awal dengan menggunakan Node yang saling terhubung, tanpa menjadikan <b>list</b> bawaan Python sebagai media penyimpanan utama.
-              </p>
-            </article>
-
-            <article class="feature-card fade-up">
-              <i class="ti ti-box-model-2" aria-hidden="true"></i>
-
-              <h3>Object Oriented</h3>
-
-              <p>
-                Dikembangkan dengan prinsip <b>Object-Oriented Programming (OOP)</b> melalui pemisahan class <b>Employee</b>, <b>Node</b>, dan <b>LinkedList</b> agar kode lebih modular dan mudah dikelola.
-              </p>
-            </article>
-
-            <article class="feature-card fade-up">
-              <i class="ti ti-edit" aria-hidden="true"></i>
-
-              <h3>CRUD Operations</h3>
-
-              <p>
-                Mendukung operasi <b>Create</b>, <b>Read</b>, <b>Update</b>, <b>Delete</b>, pencarian data, serta pembaruan data secara batch.
-              </p>
-            </article>
-
-            <article class="feature-card fade-up">
-              <i class="ti ti-chart-bar" aria-hidden="true"></i>
-
-              <h3>Statistics</h3>
-
-              <p>
-                Menghitung berbagai statistik seperti total gaji, rata-rata, gaji tertinggi, gaji terendah, pengelompokan data, dan distribusi gaji.
-              </p>
-            </article>
-
-            <article class="feature-card fade-up">
-              <i class="ti ti-filter" aria-hidden="true"></i>
-
-              <h3>Filter</h3>
-
-              <p>
-                Mendukung dynamic filtering berdasarkan berbagai atribut karyawan menggunakan fungsi <b>getattr()</b> pada Python.
-              </p>
-            </article>
-
-            <article class="feature-card fade-up">
-              <i class="ti ti-code" aria-hidden="true"></i>
-
-              <h3>Built From Scratch</h3>
-
-              <p>
-                Seluruh fitur dan algoritma dikembangkan dari awal untuk menerapkan konsep struktur data, algoritma, dan OOP tanpa menggunakan library analisis data seperti <b>Pandas</b>.
-              </p>
-            </article>
+            <article class="feature-card fade-up"><i class="ti ti-file-import" aria-hidden="true"></i><h3>Multi-format Import</h3><p>Membaca CSV, semua sheet dalam workbook Excel, dan file CSV yang ada di dalam ZIP.</p></article>
+            <article class="feature-card fade-up"><i class="ti ti-layers-intersect" aria-hidden="true"></i><h3>Data Consolidation</h3><p>Menyeragamkan nama kolom lalu menggabungkan tabel dengan skema yang tidak selalu sama.</p></article>
+            <article class="feature-card fade-up"><i class="ti ti-calendar-time" aria-hidden="true"></i><h3>Date Handling</h3><p>Mencoba format tanggal yang dikonfigurasi; tanggal yang gagal dibaca ditandai sebagai tidak valid.</p></article>
+            <article class="feature-card fade-up"><i class="ti ti-filter" aria-hidden="true"></i><h3>Period Filter</h3><p>Menghapus tanggal tidak valid, menerapkan batas tanggal inklusif, lalu mengurutkan data.</p></article>
+            <article class="feature-card fade-up"><i class="ti ti-file-spreadsheet" aria-hidden="true"></i><h3>Excel Workbook</h3><p>Membuat ringkasan, memisahkan sheet menurut bulan, serta menambahkan filter dan freeze header.</p></article>
+            <article class="feature-card fade-up"><i class="ti ti-shield-lock" aria-hidden="true"></i><h3>Safe Portfolio Demo</h3><p>File contoh berisi label generik yang dibuat khusus; tidak ada log atau identitas operasional.</p></article>
           </div>
         </div>
       </section>
-
-      <!-- =========================================
-                ARCHITECTURE
-========================================= -->
 
       <section id="architecture" class="architecture">
         <div class="container">
           <div class="section-header fade-up">
-            <span class="section-badge"> Arsitektur Project </span>
-
-            <h2>Cara Kerja Sistem</h2>
-
-            <p>
-              Project ini memproses data secara bertahap, mulai dari membaca dataset CSV, membangun object Employee, menyimpannya dalam Linked List, menjalankan berbagai operasi analisis data, hingga menampilkan hasil kepada pengguna.
-            </p>
+            <span class="section-badge">Arsitektur Project</span>
+            <h2>Alur ETL</h2>
+            <p>Diagram mengikuti urutan modul pipeline dari berkas masuk hingga workbook hasil.</p>
           </div>
-
           <div class="architecture-flow">
-            <div class="architecture-card fade-up">
-              <div class="architecture-icon">
-                <i class="ti ti-file-spreadsheet" aria-hidden="true"></i>
-              </div>
-
-              <h3>ds_salaries.csv</h3>
-
-              <span class="architecture-badge"> 📥 Dataset </span>
-
-              <p>Dataset gaji karyawan yang menjadi sumber data utama aplikasi.</p>
-            </div>
-
-            <div class="flow-arrow">
-              <i class="ti ti-arrow-down" aria-hidden="true"></i>
-            </div>
-            <div class="architecture-card fade-up">
-              <div class="architecture-icon">
-                <i class="ti ti-database-import" aria-hidden="true"></i>
-              </div>
-
-              <h3>csv_loader.py</h3>
-
-              <span class="architecture-badge"> 📥 Data Import </span>
-
-              <p>
-                Membaca dataset CSV dan mengonversi setiap baris menjadi object Employee.
-              </p>
-            </div>
-
-            <div class="flow-arrow">
-              <i class="ti ti-arrow-down" aria-hidden="true"></i>
-            </div>
-            <div class="architecture-card fade-up">
-              <div class="architecture-icon">
-                <i class="ti ti-user" aria-hidden="true"></i>
-              </div>
-
-              <h3>employee.py</h3>
-
-              <span class="architecture-badge"> 🏷 Data Model </span>
-
-              <p>
-                Merepresentasikan satu data karyawan beserta atribut seperti gaji, jabatan, tingkat pengalaman, dan informasi lainnya.
-              </p>
-            </div>
-
-            <div class="flow-arrow">
-              <i class="ti ti-arrow-down" aria-hidden="true"></i>
-            </div>
-            <div class="architecture-card fade-up">
-              <div class="architecture-icon">
-                <i class="ti ti-box" aria-hidden="true"></i>
-              </div>
-
-              <h3>node.py</h3>
-
-              <span class="architecture-badge"> 🔗 Linked List Node </span>
-
-              <p>
-                Membungkus object Employee ke dalam Node agar dapat saling terhubung membentuk Linked List.
-              </p>
-            </div>
-
-            <div class="flow-arrow">
-              <i class="ti ti-arrow-down" aria-hidden="true"></i>
-            </div>
-            <div class="architecture-card fade-up featured">
-              <div class="architecture-icon">
-                <i class="ti ti-list-tree" aria-hidden="true"></i>
-              </div>
-
-              <h3>linked_list.py</h3>
-
-              <span class="architecture-badge"> ⭐ Core Library </span>
-
-              <p>
-                Mengelola implementasi Linked List serta menyediakan seluruh operasi utama seperti CRUD, Filtering, Grouping, dan perhitungan statistik.
-              </p>
-
-              <div class="architecture-api-list">
-                <span>CRUD</span>
-
-                <span>Statistics</span>
-
-                <span>Grouping</span>
-
-                <span>Filter</span>
-
-                <span>Distribution</span>
-              </div>
-            </div>
-
-            <div class="flow-arrow">
-              <i class="ti ti-arrow-down" aria-hidden="true"></i>
-            </div>
-            <div class="architecture-card fade-up">
-              <div class="architecture-icon">
-                <i class="ti ti-terminal-2" aria-hidden="true"></i>
-              </div>
-
-              <h3>main.py</h3>
-
-              <span class="architecture-badge"> 🚀 Entry Point </span>
-
-              <p>
-                Memuat dataset, menjalankan berbagai operasi pada Linked List, kemudian menampilkan hasil analisis. 
-              </p>
-            </div>
-
-            <div class="flow-arrow">
-              <i class="ti ti-arrow-down" aria-hidden="true"></i>
-            </div>
-            <div class="architecture-card fade-up">
-              <div class="architecture-icon">
-                <i class="ti ti-report-analytics" aria-hidden="true"></i>
-              </div>
-
-              <h3>Employee Salary Analytics</h3>
-
-              <span class="architecture-badge"> 📊 Output </span>
-
-              <p>
-                Menampilkan hasil analisis data gaji yang dihasilkan dari implementasi Linked List.
-              </p>
-            </div>
+            <article class="architecture-card fade-up"><div class="architecture-icon"><i class="ti ti-files"></i></div><h3>CSV • Excel • ZIP</h3><span class="architecture-badge">1 · Extract</span><p>Ambil CSV, setiap sheet Excel, dan CSV di dalam arsip ZIP dari folder input.</p></article>
+            <div class="flow-arrow"><i class="ti ti-arrow-down"></i></div>
+            <article class="architecture-card fade-up"><div class="architecture-icon"><i class="ti ti-database-import"></i></div><h3>01_import_data.py</h3><span class="architecture-badge">2 · Read &amp; Tag</span><p>Baca tiap sumber dan tambahkan metadata asal file, tipe sumber, serta nama sheet.</p></article>
+            <div class="flow-arrow"><i class="ti ti-arrow-down"></i></div>
+            <article class="architecture-card fade-up featured"><div class="architecture-icon"><i class="ti ti-layers-intersect"></i></div><h3>pandas.concat</h3><span class="architecture-badge">3 · Consolidate</span><p>Satukan tabel menjadi satu DataFrame; kolom yang tidak tersedia pada suatu sumber tetap kosong.</p><div class="architecture-api-list"><span>CSV</span><span>Excel sheets</span><span>ZIP CSV</span></div></article>
+            <div class="flow-arrow"><i class="ti ti-arrow-down"></i></div>
+            <article class="architecture-card fade-up"><div class="architecture-icon"><i class="ti ti-calendar-stats"></i></div><h3>02_transform_data.py</h3><span class="architecture-badge">4 · Transform</span><p>Konversi tanggal dengan format yang ditentukan, keluarkan tanggal invalid, filter periode, urutkan, dan buat kolom Month.</p></article>
+            <div class="flow-arrow"><i class="ti ti-arrow-down"></i></div>
+            <article class="architecture-card fade-up"><div class="architecture-icon"><i class="ti ti-file-check"></i></div><h3>03_export_excel.py</h3><span class="architecture-badge">5 · Load</span><p>Tulis sheet Summary dan data per bulan. Sheet besar dapat dibagi agar tetap di bawah batas baris Excel.</p></article>
+            <div class="flow-arrow"><i class="ti ti-arrow-down"></i></div>
+            <article class="architecture-card fade-up"><div class="architecture-icon"><i class="ti ti-table-export"></i></div><h3>Result.xlsx</h3><span class="architecture-badge">6 · Review</span><p>Workbook siap ditinjau dengan freeze header, filter, lebar kolom, dan perlindungan teks formula.</p></article>
           </div>
         </div>
       </section>
-
-      <!-- =========================================
-                FEATURES
-========================================= -->
 
       <section id="features" class="features">
         <div class="container">
-          <!-- Section Header -->
-
           <div class="section-header fade-up">
-            <span class="section-badge"> Fitur Project </span>
-
-            <h2>Library yang Dibangun dari Awal</h2>
-
-            <p>
-              <b>Employee Salary Analytics</b> menyediakan kumpulan method yang dapat digunakan kembali untuk mengelola dan menganalisis data karyawan. Seluruh method dibangun di atas implementasi <b>Linked List</b> yang dikembangkan sendiri serta menerapkan prinsip <b>Object-Oriented Programming (OOP)</b> dan desain kode yang modular.
-            </p>
+            <span class="section-badge">Hasil &amp; Kode</span>
+            <h2>Data Quality dan Walkthrough</h2>
+            <p>Angka hasil di bawah dihitung dari berkas demo sintetis yang disertakan. Cuplikan kode mengikuti modul ETL dalam repository.</p>
           </div>
-
-          <!-- ===============================
-                FEATURES GRID
-        ================================ -->
-
           <div class="features-grid">
-            <!-- PUBLIC METHOD -->
-
-            <div class="api-group-title fade-up">
-              <span>PUBLIC METHOD</span>
-
-              <p>
-                Kumpulan method yang dapat dipanggil langsung oleh aplikasi atau pengguna library untuk mengelola dan menganalisis data.
-              </p>
-            </div>
-
-            <!-- CRUD -->
-
-            <article class="feature-api-card fade-up">
-              <div class="feature-api-icon">
-                <i class="ti ti-edit" aria-hidden="true"></i>
-              </div>
-
-              <h3>CRUD OPERATION</h3>
-
-              <span class="feature-api-badge"> Data Management </span>
-
-              <p class="api-description">
-                Menyediakan operasi dasar Linked List untuk mengelola data karyawan, termasuk penambahan, pencarian, pembaruan, penghapusan, dan traversal data dengan tetap menjaga integritas struktur Linked List.
-              </p>
-
-              <div class="api-information">
-                <div class="api-item">
-                  <span class="api-label"> Signature </span>
-
-                  <code> append(data) </code>
-                </div>
-
-                <div class="api-item">
-                  <span class="api-label"> Returns </span>
-
-                  <code> None </code>
-                </div>
-
-                <div class="api-item">
-                  <span class="api-label"> Complexity </span>
-
-                  <code> O(n) </code>
-                </div>
-              </div>
-
-              <button class="toggle-details">
-                View Details
-
-                <i class="ti ti-chevron-down" aria-hidden="true"></i>
-              </button>
-
-              <div class="api-details">
-                <h4>Methods</h4>
-
-                <ul>
-                  <li>append(data)</li>
-
-                  <li>display(limit=None)</li>
-
-                  <li>__len__()</li>
-
-                  <li>delete_by_index(index)</li>
-
-                  <li>insert_before_by_index(index, data)</li>
-
-                  <li>insert_after_by_index(index, data)</li>
-
-                  <li>update_by_index(index, attribute, value)</li>
-                </ul>
-
-                <h4>Implementation Notes</h4>
-
-                <p>
-                 Method public menggunakan helper method private agar logika tidak terduplikasi, sehingga kode lebih konsisten dan mudah dipelihara.
-                </p>
-
-                <div class="code-preview">
-                  <div class="code-header">
-                    <span></span>
-
-                    <span></span>
-
-                    <span></span>
-
-                    <small>crud.py</small>
-                  </div>
-
-                  <pre><code>ll.append(employee)</code></pre>
-                </div>
-              </div>
-            </article>
-
-            <!-- Statistics -->
-
+            <div class="api-group-title fade-up"><span>DATA QUALITY · DEMO</span><p>Periode demo 1–31 Maret 2025, dengan batas awal dan akhir yang inklusif. Tidak ada deduplikasi otomatis dalam pipeline.</p></div>
             <article class="feature-api-card fade-up featured-api">
-              <div class="feature-api-icon">
-                <i class="ti ti-chart-bar" aria-hidden="true"></i>
-              </div>
-
-              <h3>Statistics</h3>
-
-              <span class="feature-api-badge"> 🌟Analytics </span>
-
-              <p class="api-description">
-                Menyediakan operasi statistik untuk menghitung total, rata-rata, gaji tertinggi, gaji terendah, dan distribusi data menggunakan implementasi Linked List.
-              </p>
-
+              <div class="feature-api-icon"><i class="ti ti-chart-bar"></i></div><h3>Hasil Demo</h3><span class="feature-api-badge">Data sintetis</span>
+              <p class="api-description">Sembilan baris dari CSV, Excel multi-sheet, dan CSV di dalam ZIP digabungkan sebelum pemeriksaan tanggal.</p>
               <div class="api-information">
-                <div class="api-item">
-                  <span class="api-label"> Signature </span>
-
-                  <code> average_salary() </code>
-                </div>
-
-                <div class="api-item">
-                  <span class="api-label"> Returns </span>
-
-                  <code> float </code>
-                </div>
-
-                <div class="api-item">
-                  <span class="api-label"> Complexity </span>
-
-                  <code> O(n) </code>
-                </div>
+                <div class="api-item"><span class="api-label">Diimpor</span><code>9 baris · 3 file input</code></div>
+                <div class="api-item"><span class="api-label">Kualitas tanggal</span><code>1 invalid · 1 di luar periode</code></div>
+                <div class="api-item"><span class="api-label">Diekspor</span><code>7 baris · Summary + 03</code></div>
               </div>
-
-              <button class="toggle-details">
-                View Details
-
-                <i class="ti ti-chevron-down" aria-hidden="true"></i>
-              </button>
-
-              <div class="api-details">
-                <h4>Methods</h4>
-
-                <ul>
-                  <li>count()</li>
-
-                  <li>total_salary()</li>
-
-                  <li>average_salary()</li>
-
-                  <li>highest_salary()</li>
-
-                  <li>lowest_salary()</li>
-                </ul>
-
-                <h4>Implementation Notes</h4>
-
-                <p>
-                  Method average_salary() melakukan satu kali traversal pada Linked List untuk menghitung rata-rata gaji tanpa memerlukan struktur data tambahan.
-                </p>
-
-                <div class="code-preview">
-                  <div class="code-header">
-                    <span></span>
-
-                    <span></span>
-
-                    <span></span>
-
-                    <small>statistic.py</small>
-                  </div>
-
-                  <pre><code>avg = ll.average_salary()
-
-print(avg)</code></pre>
-                </div>
-              </div>
+              <button class="toggle-details" aria-expanded="false" data-label-closed="Rincian hasil" data-label-open="Sembunyikan rincian">Rincian hasil<i class="ti ti-chevron-down" aria-hidden="true"></i></button>
+              <div class="api-details"><h4>Interpretasi</h4><ul><li>8 tanggal berhasil dikonversi.</li><li>1 baris dengan tanggal tidak valid dibuang.</li><li>1 tanggal valid berada di luar periode demo.</li><li>7 baris tersisa, diurutkan dan diberi Month = 3.</li></ul><p>Angka ini adalah hasil dari dataset sintetis portfolio dan bukan ukuran data kerja.</p></div>
             </article>
 
-            <!-- Grouping -->
-
+            <div class="api-group-title fade-up"><span>CODE WALKTHROUGH</span><p>Tiap tahap dipisahkan agar format sumber, aturan transformasi, dan pengaturan output dapat diubah secara terarah.</p></div>
             <article class="feature-api-card fade-up">
-              <div class="feature-api-icon">
-                <i class="ti ti-layout-grid" aria-hidden="true"></i>
-              </div>
+              <div class="feature-api-icon"><i class="ti ti-database-import"></i></div><h3>1. Import</h3><span class="feature-api-badge">01_import_data.py</span>
+              <p class="api-description">Pembaca file memberi tag sumber, lalu menggabungkan seluruh DataFrame dengan indeks baru.</p>
+              <div class="api-information"><div class="api-item"><span class="api-label">Output</span><code>Satu DataFrame</code></div><div class="api-item"><span class="api-label">Metadata</span><code>_SourceFile · _SourceType · _SheetName</code></div></div>
+              <button class="toggle-details" aria-expanded="false" data-label-closed="Lihat cuplikan" data-label-open="Sembunyikan cuplikan">Lihat cuplikan<i class="ti ti-chevron-down" aria-hidden="true"></i></button>
+              <div class="api-details"><h4>Konsolidasi sumber</h4><p>CSV, workbook, dan arsip CSV dibaca lewat fungsi khusus sebelum langkah transformasi.</p><div class="code-preview"><div class="code-header"><span></span><span></span><span></span><small>01_import_data.py</small></div><pre><code>df = pd.concat(
+    dataframes,
+    ignore_index=True,
+    sort=False,
+)</code></pre></div></div>
+            </article>
+            <article class="feature-api-card fade-up">
+              <div class="feature-api-icon"><i class="ti ti-calendar-time"></i></div><h3>2. Transform</h3><span class="feature-api-badge">02_transform_data.py</span>
+              <p class="api-description">Coba daftar format secara berurutan; nilai yang tidak cocok menjadi NaT untuk ditangani pada quality step.</p>
+              <div class="api-information"><div class="api-item"><span class="api-label">Tanggal</span><code>Timestamp</code></div><div class="api-item"><span class="api-label">Invalid</span><code>errors="coerce"</code></div></div>
+              <button class="toggle-details" aria-expanded="false" data-label-closed="Lihat cuplikan" data-label-open="Sembunyikan cuplikan">Lihat cuplikan<i class="ti ti-chevron-down" aria-hidden="true"></i></button>
+              <div class="api-details"><h4>Parse format berbeda</h4><div class="code-preview"><div class="code-header"><span></span><span></span><span></span><small>02_transform_data.py</small></div><pre><code>parsed.loc[mask] = pd.to_datetime(
+    df.loc[mask, DATE_COLUMN],
+    format=fmt,
+    errors="coerce",
+)</code></pre></div><p>Setelah parse, tanggal invalid dibuang, periode diterapkan, lalu baris diurutkan.</p></div>
+            </article>
+            <article class="feature-api-card fade-up">
+              <div class="feature-api-icon"><i class="ti ti-filter"></i></div><h3>3. Filter &amp; Sort</h3><span class="feature-api-badge">02_transform_data.py</span>
+              <p class="api-description">Pakai batas tanggal konfigurasi, urutkan secara kronologis, dan turunkan nomor bulan dari Timestamp.</p>
+              <div class="api-information"><div class="api-item"><span class="api-label">Rentang</span><code>START_DATE ≤ Timestamp ≤ END_DATE</code></div><div class="api-item"><span class="api-label">Kolom turunan</span><code>Month (1–12)</code></div></div>
+              <button class="toggle-details" aria-expanded="false" data-label-closed="Lihat cuplikan" data-label-open="Sembunyikan cuplikan">Lihat cuplikan<i class="ti ti-chevron-down" aria-hidden="true"></i></button>
+              <div class="api-details"><h4>Urutkan dan tambahkan bulan</h4><div class="code-preview"><div class="code-header"><span></span><span></span><span></span><small>02_transform_data.py</small></div><pre><code>df = df.sort_values(
+    DATE_COLUMN
+).reset_index(drop=True)
 
-              <h3>Grouping</h3>
-
-              <span class="feature-api-badge"> Aggregation </span>
-
-              <p class="api-description">
-                Mendukung pengelompokan data secara dinamis berdasarkan berbagai atribut karyawan untuk menghasilkan jumlah data, statistik gaji, maupun analisis berdasarkan kategori tertentu.
-              </p>
-
-              <div class="api-information">
-                <div class="api-item">
-                  <span class="api-label"> Signature </span>
-
-                  <code> count_by(attribute) </code>
-                </div>
-
-                <div class="api-item">
-                  <span class="api-label"> Returns </span>
-
-                  <code> dict </code>
-                </div>
-
-                <div class="api-item">
-                  <span class="api-label"> Complexity </span>
-
-                  <code> O(n) </code>
-                </div>
-              </div>
-
-              <button class="toggle-details">
-                View Details
-
-                <i class="ti ti-chevron-down" aria-hidden="true"></i>
-              </button>
-
-              <div class="api-details">
-                <h4>Methods</h4>
-
-                <ul>
-                  <li>count_by(attribute)</li>
-
-                  <li>total_salary_by(attribute)</li>
-
-                  <li>average_salary_by(attribute)</li>
-
-                  <li>highest_salary_by(attribute)</li>
-
-                  <li>lowest_salary_by(attribute)</li>
-                </ul>
-
-                <h4>Implementation Notes</h4>
-
-                <p>
-                  Hasil pengelompokan disimpan dalam dictionary, dengan key berupa nilai atribut dan value berisi daftar object Employee.
-                </p>
-
-                <div class="code-preview">
-                  <div class="code-header">
-                    <span></span>
-
-                    <span></span>
-
-                    <span></span>
-
-                    <small>grouping.py</small>
-                  </div>
-
-                  <pre><code>result = ll.count_by(
-    "experience_level"
+df["Month"] = df[DATE_COLUMN].dt.month</code></pre></div></div>
+            </article>
+            <article class="feature-api-card fade-up">
+              <div class="feature-api-icon"><i class="ti ti-table-export"></i></div><h3>4. Excel Export</h3><span class="feature-api-badge">03_export_excel.py</span>
+              <p class="api-description">Tulis ringkasan dan sheet bulanan; pecah data besar sesuai kapasitas sheet, lalu rapikan tampilan workbook.</p>
+              <div class="api-information"><div class="api-item"><span class="api-label">Workbook</span><code>Summary + sheet MM</code></div><div class="api-item"><span class="api-label">Excel row limit</span><code>1,048,576 termasuk header</code></div></div>
+              <button class="toggle-details" aria-expanded="false" data-label-closed="Lihat cuplikan" data-label-open="Sembunyikan cuplikan">Lihat cuplikan<i class="ti ti-chevron-down" aria-hidden="true"></i></button>
+              <div class="api-details"><h4>Tulis satu sheet</h4><div class="code-preview"><div class="code-header"><span></span><span></span><span></span><small>03_export_excel.py</small></div><pre><code>df.to_excel(
+    writer,
+    sheet_name=sheet_name,
+    index=False,
 )
-
-print(result["SE"])</code></pre>
-                </div>
-              </div>
-            </article>
-
-            <!-- Filter -->
-
-            <article class="feature-api-card fade-up">
-              <div class="feature-api-icon">
-                <i class="ti ti-filter" aria-hidden="true"></i>
-              </div>
-
-              <h3>Filter</h3>
-
-              <span class="feature-api-badge"> Query </span>
-
-              <p class="api-description">
-                Menyediakan operasi penyaringan data secara dinamis berdasarkan atribut karyawan serta mendukung pembaruan data secara batch dengan tetap mempertahankan struktur Linked List.
-              </p>
-
-              <div class="api-information">
-                <div class="api-item">
-                  <span class="api-label"> Signature </span>
-
-                  <code> filter_by(attribute, value) </code>
-                </div>
-
-                <div class="api-item">
-                  <span class="api-label"> Returns </span>
-
-                  <code> LinkedList </code>
-                </div>
-
-                <div class="api-item">
-                  <span class="api-label"> Complexity </span>
-
-                  <code> O(n) </code>
-                </div>
-              </div>
-
-              <button class="toggle-details">
-                View Details
-
-                <i class="ti ti-chevron-down" aria-hidden="true"></i>
-              </button>
-
-              <div class="api-details">
-                <h4>Methods</h4>
-
-                <ul>
-                  <li>filter_by(attribute, value)</li>
-
-                  <li>update_all_by(attribute, old_value, new_value)</li>
-
-                  <li>remove_all_by(attribute, value)</li>
-                </ul>
-
-                <h4>Implementation Notes</h4>
-
-                <p>
-                  Filtering dilakukan secara dinamis menggunakan getattr(), sehingga method dapat bekerja dengan berbagai atribut tanpa membuat method khusus untuk setiap field.
-                </p>
-
-                <div class="code-preview">
-                  <div class="code-header">
-                    <span></span>
-
-                    <span></span>
-
-                    <span></span>
-
-                    <small>filter.py</small>
-                  </div>
-
-                  <pre><code>filtered = ll.filter_by(
-    "experience_level",
-    "SE"
-)
-
-filtered.display()</code></pre>
-                </div>
-              </div>
-            </article>
-
-            <!-- Distribution -->
-
-            <article class="feature-api-card fade-up">
-              <div class="feature-api-icon">
-                <i class="ti ti-chart-histogram" aria-hidden="true"></i>
-              </div>
-
-              <h3>Distribution</h3>
-
-              <span class="feature-api-badge"> Data Distribution </span>
-
-              <p class="api-description">
-                Mengelompokkan data gaji ke dalam rentang (salary bucket) tertentu untuk menampilkan distribusi jumlah karyawan pada setiap interval gaji.
-              </p>
-
-              <div class="api-information">
-                <div class="api-item distribution-signature" >
-                  <span class="api-label"> Signature </span>
-
-                  <code>
-    salary_distribution(<span class="distribution-indent">interval=100000</span>)
-  </code>
-                </div>
-
-                <div class="api-item">
-                  <span class="api-label"> Returns </span>
-
-                  <code> dict </code>
-                </div>
-
-                <div class="api-item">
-                  <span class="api-label"> Complexity </span>
-
-                  <code> O(n) </code>
-                </div>
-              </div>
-
-              <button class="toggle-details">
-                View Details
-
-                <i class="ti ti-chevron-down" aria-hidden="true"></i>
-              </button>
-
-              <div class="api-details">
-                <h4>Methods</h4>
-
-                <ul>
-                  <li>salary_distribution<br>(interval=100000)</li>
-                </ul>
-
-                <h4>Implementation Notes</h4>
-
-                <p>
-                  Nilai interval dapat disesuaikan melalui parameter interval, sehingga distribusi gaji dapat ditampilkan dengan tingkat detail yang berbeda tanpa mengubah implementasi method.
-                </p>
-
-                <div class="code-preview">
-                  <div class="code-header">
-                    <span></span>
-
-                    <span></span>
-
-                    <span></span>
-
-                    <small>distribution.py</small>
-                  </div>
-
-                  <pre><code>distribution = ll.salary_distribution()</code></pre>
-                </div>
-              </div>
-            </article>
-            <!-- =========================
-                      INTERNAL METHOD
-            ========================= -->
-
-            <div class="api-group-title internal fade-up">
-              <span>INTERNAL METHOD</span>
-
-              <p>
-              Menyediakan helper method internal yang digunakan oleh public method untuk menangani manipulasi Linked List, validasi data, serta logika yang digunakan kembali agar implementasi tetap konsisten dan mudah dipelihara.
-              </p>
-            </div>
-            <article class="feature-api-card helper-card fade-up">
-              <div class="feature-api-icon">
-                <i class="ti ti-tool" aria-hidden="true"></i>
-              </div>
-
-              <h3>Helper Methods</h3>
-
-              <span class="feature-api-badge"> Internal Utility </span>
-
-              <p class="api-description">
-                Menyediakan helper method private yang digunakan oleh public method untuk mengurangi duplikasi kode dan menjaga konsistensi implementasi Linked List.
-              </p>
-
-              <div class="api-information">
-                <div class="api-item">
-                  <span class="api-label"> Signature </span>
-
-                  <code> _is_valid_attribute(attribute) </code>
-                </div>
-
-                <div class="api-item">
-                  <span class="api-label"> Returns </span>
-
-                  <code> bool </code>
-                </div>
-
-                <div class="api-item">
-                  <span class="api-label"> Complexity </span>
-
-                  <code> O(1) </code>
-                </div>
-              </div>
-
-              <button class="toggle-details">
-                View Details
-
-                <i class="ti ti-chevron-down" aria-hidden="true"></i>
-              </button>
-
-              <div class="api-details">
-                <h4>Methods</h4>
-
-                <ul>
-                  <li>_is_valid_attribute(attribute)</li>
-
-                  <li>_validate_value(attribute, value)</li>
-
-                  <li>_insert_between(previous, new_node)</li>
-
-                  <li>_remove_node(previous, current)</li>
-                </ul>
-
-                <h4>Implementation Notes</h4>
-
-                <p>
-                  Beberapa public method menggunakan helper method yang sama sehingga logika tidak ditulis berulang dan implementasi tetap mudah dipelihara.
-                </p>
-
-                <div class="code-preview">
-                  <div class="code-header">
-                    <span></span>
-
-                    <span></span>
-
-                    <span></span>
-
-                    <small>linked_list.py</small>
-                  </div>
-
-                  <pre><code># Internal Use Only
-self._is_valid_attribute(attribute)</code></pre>
-                </div>
-              </div>
+freeze_header(ws)
+apply_filter(ws)</code></pre></div><p>Nilai teks yang diawali karakter formula diberi awalan apostrof sebelum ekspor.</p></div>
             </article>
           </div>
         </div>
       </section>
-
-      <!-- =====================================
-            DOCUMENTATION
-            (NEXT PHASE)
-        ====================================== -->
 
       <section id="documentation" class="documentation">
         <div class="container">
           <div class="section-header fade-up">
-            <span class="section-badge"> Dokumentasi </span>
-
-            <h2>Dokumentasi Employee Salary Analytics.</h2>
-
-            <p>
-              Employee Salary Analytics merupakan library berbasis <b>Python</b> yang mengimplementasikan struktur data <b>Linked List</b> untuk mengelola dan menganalisis data gaji karyawan. Library ini menyediakan operasi <b>CRUD</b>, <b>Filtering</b>, <b>Grouping</b>, <b>Statistics</b>, serta <b>Salary Distribution</b> tanpa bergantung pada library analisis data seperti <b>Pandas</b>.
-            </p>
+            <span class="section-badge">Demo &amp; Dokumentasi</span>
+            <h2>Coba dengan Data Sintetis</h2>
+            <p>Demo aman dapat dijalankan lokal. Gunakan hanya file contoh yang disediakan di repository untuk meninjau alur end-to-end.</p>
           </div>
-          <!-- ===============================
-      DOCUMENTATION GRID
-================================ -->
-
           <div class="documentation-grid">
-            <!-- INSTALL -->
-
-            <article class="documentation-card fade-up">
-              <div class="documentation-icon">
-                <i class="ti ti-download"aria-hidden="true"> </i>
-              </div>
-
-              <h3>Installation</h3>
-
-              <p>
-                Clone repository, kemudian jalankan aplikasi menggunakan Python.
-              </p>
-
-              <div class="code-preview">
-                <div class="code-header">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-
-                  <small>terminal</small>
-                </div>
-
-                <pre><code>git clone https://github.com/good-pastel/employee-salary-analytics
-
-cd employee-salary-analytics
-
-python main.py</code></pre>
-              </div>
-            </article>
-
-            <!-- QUICK START -->
-
-            <article class="documentation-card fade-up">
-              <div class="documentation-icon">
-                <i class="ti ti-player-play aria-hidden=true"></i>
-              </div>
-
-              <h3>Quick Start</h3>
-
-              <p>
-                Muat dataset CSV ke dalam implementasi Linked List, kemudian gunakan Method yang tersedia untuk melakukan operasi CRUD, Filtering, Grouping, serta analisis data gaji.
-              </p>
-
-              <div class="code-preview">
-                <div class="code-header">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-
-                  <small>main.py</small>
-                </div>
-
-                <pre><code>employees = load_csv()
-
-ll = LinkedList()
-
-for employee in employees:
-    ll.append(employee)
-
-print(ll.average_salary())</code></pre>
-              </div>
-            </article>
-
-            <!-- REQUIREMENTS -->
-
-            <article class="documentation-card fade-up">
-              <div class="documentation-icon">
-                <i class="ti ti-package" aria-hidden="true"></i>
-              </div>
-
-              <h3>Environment</h3>
-
-              <p>
-                Project ini dibangun menggunakan Python Standard Library sehingga tetap ringan, mudah dijalankan, dan tidak memerlukan dependensi pihak ketiga.
-              </p>
-
-              <ul class="requirement-list">
-                <li>Python 3.10+</li>
-
-                <li>Dataset CSV (ds_salaries.csv)</li>
-
-                <li>Python Standard Library</li>
-              </ul>
-            </article>
-
-            <!-- PROJECT INFORMATION -->
-
-            <article class="documentation-card fade-up">
-              <div class="documentation-icon">
-                <i class="ti ti-license" aria-hidden="true"></i>
-              </div>
-
-              <h3>Project Information</h3>
-
-              <p>
-                Project ini dikembangkan sebagai media pembelajaran implementasi struktur data Linked List, algoritma, dan Object-Oriented Programming (OOP) dalam pengelolaan data gaji karyawan.
-              </p>
-
-              <div class="license-box">
-                <strong>Portfolio Project</strong>
-
-                <span>🎓 Educational Project<br>
-📂 Open Source<br>
-🐍 Python Standard Library</span>
-              </div>
-            </article>
+            <article class="documentation-card fade-up"><div class="documentation-icon"><i class="ti ti-terminal-2"></i></div><h3>Menjalankan Pipeline</h3><p>Python membuat workbook demo di folder output. Paket yang diperlukan tercantum di requirements.</p><div class="code-preview"><div class="code-header"><span></span><span></span><span></span><small>terminal</small></div><pre><code>python -m pip install -r requirements.txt
+python python/main.py</code></pre></div></article>
+            <article class="documentation-card fade-up"><div class="documentation-icon"><i class="ti ti-download"></i></div><h3>Input Demo</h3><p>Ketiga format memakai baris contoh buatan: label event generik, kategori, dan timestamp sintetis.</p><ul class="requirement-list"><li><a href="demo/input/demo_activity.csv" download>Unduh CSV sintetis</a></li><li><a href="demo/input/demo_activity.xlsx" download>Unduh Excel sintetis</a></li><li><a href="demo/input/demo_bundle.zip" download>Unduh ZIP sintetis</a></li></ul></article>
+            <article class="documentation-card fade-up"><div class="documentation-icon"><i class="ti ti-file-spreadsheet"></i></div><h3>Workbook Hasil</h3><p>Contoh output berisi ringkasan periode dan satu sheet data bulan Maret. Tidak berisi log kerja asli.</p><div class="license-box"><strong>Result.xlsx</strong><span><a href="demo/output/Result.xlsx" download>Unduh workbook hasil demo</a><br>7 baris data sintetis · 2 sheet</span></div></article>
+            <article class="documentation-card fade-up"><div class="documentation-icon"><i class="ti ti-shield-check"></i></div><h3>Batas &amp; Keamanan</h3><p>Gunakan data yang memang boleh diproses dan dibagikan. Portfolio ini tidak menyertakan nama perusahaan, host, IP, aplikasi, atau file sumber operasional.</p><ul class="requirement-list"><li>ZIP membaca file CSV di dalam arsip.</li><li>Tanggal invalid dibuang; tanggal duplikat tidak otomatis dihapus.</li><li>Rentang tanggal diatur di python/config.py.</li></ul></article>
           </div>
-          <!-- ===============================
-      PROJECT STRUCTURE
-================================ -->
-
-<div class="project-structure fade-up">
-
-    <div class="section-header fade-up">
-
-        <span class="section-badge">
-
-            Struktur Project
-
-        </span>
-
-        <h2>Source Code Organization</h2>
-
-        <p>
-
-           Setiap komponen aplikasi ditempatkan pada module Python yang terpisah sesuai fungsinya, sehingga struktur project menjadi lebih rapi, modular, dan mudah dikembangkan.
-
-        </p>
-
-    </div>
-
-    <div class="structure-window">
-
-        <div class="window-header">
-
-            <span></span>
-            <span></span>
-            <span></span>
-
-            <small>Explorer</small>
-
-        </div>
-
-        <div class="folder-tree">
-          <div class="tree-item folder">
-    <i class="ti ti-folder" aria-hidden="true"></i>
-    <strong>employee_salary_analytics</strong>
-</div>
-
-<div class="tree-indent">
-
-    <div class="tree-item folder">
-        <i class="ti ti-folder" aria-hidden="true"></i>
-        <strong>python</strong>
-    </div>
-
-    <div class="tree-indent">
-
-        <div class="tree-item">
-            <i class="ti ti-file-code" aria-hidden="true"></i>
-            employee.py
-
-            <span class="tree-tag">Model</span>
-        </div>
-
-        <div class="tree-item">
-            <i class="ti ti-file-code" aria-hidden="true"></i>
-            node.py
-
-            <span class="tree-tag">Node</span>
-        </div>
-
-        <div class="tree-item featured-file">
-
-            <i class="ti ti-file-code" aria-hidden="true"></i>
-
-            linked_list.py
-
-            <span class="tree-tag primary">
-
-                Core Library
-
-            </span>
-
-        </div>
-
-        <div class="tree-item">
-            <i class="ti ti-file-code" aria-hidden="true"></i>
-            csv_loader.py
-
-            <span class="tree-tag">
-
-                Import
-
-            </span>
-
-        </div>
-
-        <div class="tree-item">
-            <i class="ti ti-file-code" aria-hidden="true"></i>
-            main.py
-
-            <span class="tree-tag">
-
-                Entry Point
-
-            </span>
-
-        </div>
-
-    </div>
-
-    <div class="tree-item folder">
-
-        <i class="ti ti-folder" aria-hidden="true"></i>
-
-        <strong>web</strong>
-
-    </div>
-
-    <div class="tree-indent">
-
-        <div class="tree-item">
-
-            <i class="ti ti-folder" aria-hidden="true"></i>
-
-            assets
-
-        </div>
-
-        <div class="tree-item">
-
-            <i class="ti ti-file-text" aria-hidden="true"></i>
-
-            index.html
-
-        </div>
-
-    </div>
-
-    <div class="tree-item">
-
-        <i class="ti ti-file-description" aria-hidden="true"></i>
-
-        README.md
-
-    </div>
-
-</div>
+          <div class="project-structure fade-up">
+            <div class="section-header fade-up"><span class="section-badge">Struktur Project</span><h2>Source Code Organization</h2><p>Modul ETL dan demo sintetis dipisahkan agar tiap tahap mudah ditinjau.</p></div>
+            <div class="structure-window"><div class="window-header"><span></span><span></span><span></span><small>Explorer</small></div>
+              <div class="folder-tree">
+                <div class="tree-item folder"><i class="ti ti-folder"></i><strong>python-etl-pipeline</strong></div><div class="tree-indent">
+                  <div class="tree-item folder"><i class="ti ti-folder"></i><strong>python</strong></div><div class="tree-indent">
+                    <div class="tree-item featured-file"><i class="ti ti-file-code"></i>01_import_data.py <span class="tree-tag primary">Extract</span></div>
+                    <div class="tree-item"><i class="ti ti-file-code"></i>02_transform_data.py <span class="tree-tag">Transform</span></div>
+                    <div class="tree-item"><i class="ti ti-file-code"></i>03_export_excel.py <span class="tree-tag">Load</span></div>
+                    <div class="tree-item"><i class="ti ti-file-code"></i>config.py <span class="tree-tag">Settings</span></div>
+                    <div class="tree-item"><i class="ti ti-file-code"></i>main.py <span class="tree-tag">Entry Point</span></div>
+                  </div>
+                  <div class="tree-item folder"><i class="ti ti-folder"></i><strong>demo</strong></div><div class="tree-indent">
+                    <div class="tree-item"><i class="ti ti-folder"></i>input <span class="tree-tag">Synthetic only</span></div>
+                    <div class="tree-item"><i class="ti ti-folder"></i>output <span class="tree-tag">Result.xlsx</span></div>
+                  </div>
+                  <div class="tree-item"><i class="ti ti-file-description"></i>README.md</div><div class="tree-item"><i class="ti ti-file-text"></i>requirements.txt</div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </main>
 
-          </section>
-    </main>
-
-    <!-- ======================================
-                    FOOTER
-    ======================================= -->
-
     <footer class="footer">
-
-      <div class="container">
-
-        <div class="footer-grid">
-
-          <!-- ABOUT -->
-
-          <div class="footer-column">
-
-            <a href="#" class="footer-logo">
-
-              <i class="ti ti-chart-dots-3" aria-hidden="true"></i>
-
-              <span>Employee Salary Analytics</span>
-
-            </a>
-
-            <p>
-
-              Library Python berbasis Linked List yang dikembangkan dari awal untuk mengelola dan menganalisis data gaji karyawan.
-
-            </p>
-
-          </div>
-
-          <!-- NAVIGATION -->
-
-          <div class="footer-column">
-
-            <h4>Navigasi</h4>
-
-            <ul>
-
-              <li><a href="#about">Tentang</a></li>
-
-              <li><a href="#architecture">Arsitektur</a></li>
-
-              <li><a href="#features">Fitur</a></li>
-
-              <li><a href="#documentation">Dokumentasi</a></li>
-
-            </ul>
-
-          </div>
-
-          <!-- PROJECT -->
-
-          <div class="footer-column">
-
-            <h4>Project</h4>
-
-            <ul>
-
-              <li>
-                <a href="https://github.com/good-pastel/employee-salary-analytics" target="_blank">
-                  GitHub
-                </a>
-              </li>
-
-              <li>
-                <a href="https://github.com/good-pastel/employee-salary-analytics" target="_blank">
-                  README
-                </a>
-              </li>
-               <li>
-                <a href="https://www.kaggle.com/datasets/ruchi798/data-science-job-salaries" target="_blank">
-                  Sumber Dataset
-                </a>
-              </li>
-
-
-
-            </ul>
-
-          </div>
-
-          <!-- BUILT WITH -->
-
-          <div class="footer-column">
-
-            <h4>Built With</h4>
-
-            <div class="footer-badges">
-
-              <span>🐍 Python</span>
-
-              <span>💜 HTML5</span>
-
-              <span>💙 CSS3</span>
-
-              <span>💛 JavaScript</span>
-
-            </div>
-
-          </div>
-
-        </div>
-
-        <div class="footer-bottom">
-
-          <p>
-
-            © 2026 Designed, developed, and documented by Devi Yolanda • Built with Python, HTML, CSS and JavaScript.
-
-          </p>
-
-        </div>
-
-      </div>
-
+      <div class="container"><div class="footer-grid">
+        <div class="footer-column"><a href="#" class="footer-logo"><i class="ti ti-chart-dots-3" aria-hidden="true"></i><span>Python ETL Pipeline</span></a><p>Portfolio satu proyek tentang konsolidasi file dan ekspor Excel dengan Python. Data demo seluruhnya sintetis.</p></div>
+        <div class="footer-column"><h4>Navigasi</h4><ul><li><a href="#about">Tentang</a></li><li><a href="#architecture">Arsitektur</a></li><li><a href="#features">Hasil &amp; Kode</a></li><li><a href="#documentation">Demo</a></li></ul></div>
+        <div class="footer-column"><h4>Project</h4><ul><li><a href="https://github.com/good-pastel/employee-salary-analytics" target="_blank" rel="noopener noreferrer">GitHub</a></li><li><a href="https://github.com/good-pastel/employee-salary-analytics/blob/main/README.md" target="_blank" rel="noopener noreferrer">README</a></li><li><a href="demo/output/Result.xlsx" download>Demo workbook</a></li></ul></div>
+        <div class="footer-column"><h4>Built With</h4><div class="footer-badges"><span>🐍 Python</span><span>💜 pandas</span><span>💙 openpyxl</span><span>📊 Excel</span></div></div>
+      </div><div class="footer-bottom"><p>© 2026 Designed, developed, and documented by Devi Yolanda • Built with Python, pandas, and Excel.</p></div></div>
     </footer>
-
     <script src="assets/js/app.js"></script>
-
     <script src="assets/js/animation.js"></script>
-
-</body>
-</html>
-
-    <!-- =====================================
-                JAVASCRIPT
-    ====================================== -->
-
-    <script src="assets/js/app.js"></script>
-
-    <script src="assets/js/animation.js"></script>
-
-    <script src="assets/js/charts.js"></script>
   </body>
 </html>
